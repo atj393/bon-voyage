@@ -45,14 +45,14 @@ export default function WelcomeScreen() {
       <View style={styles.buttonRow}>
         <Link
           href="/login"
-          style={[styles.button]}
+          style={[styles.button, { backgroundColor: tint }]}
           asChild
         >
           <ThemedText style={styles.buttonText}>Login</ThemedText>
         </Link>
         <Link
           href="/register"
-          style={[styles.button]}
+          style={[styles.button, { backgroundColor: tint }]}
           asChild
         >
           <ThemedText style={styles.buttonText}>Register</ThemedText>

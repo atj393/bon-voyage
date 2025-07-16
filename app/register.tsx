@@ -1,10 +1,15 @@
 import { StyleSheet } from 'react-native';
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
+import { BackButton } from '@/components/BackButton';
 
 export default function RegisterScreen() {
   return (
     <ThemedView style={styles.container}>
+      <ThemedView style={styles.header}>
+        <BackButton href="/welcome" />
+      </ThemedView>
+      
       <ThemedView style={styles.content}>
         <ThemedText type="title" style={styles.title}>Create Account</ThemedText>
         <ThemedText type="subtitle" style={styles.subtitle}>
@@ -22,6 +27,10 @@ export default function RegisterScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+  },
+  header: {
+    padding: 20,
+    paddingTop: 60,
   },
   content: {
     flex: 1,
