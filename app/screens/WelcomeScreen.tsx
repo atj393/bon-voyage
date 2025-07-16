@@ -1,7 +1,5 @@
 import { Link } from 'expo-router';
 import { Image } from 'expo-image';
-import { useColorScheme } from '@/hooks/useColorScheme';
-import { Colors } from '@/constants/Colors';
 import React from 'react';
 import { StyleSheet, View, ScrollView } from 'react-native';
 import { ThemedText } from '@/components/ThemedText';
@@ -14,9 +12,6 @@ const slides = [
 ];
 
 export default function WelcomeScreen() {
-  const colorScheme = useColorScheme();
-  const tint = Colors[colorScheme ?? 'light'].tint;
-
   return (
     <ThemedView style={styles.container}>
       <Image
@@ -45,14 +40,14 @@ export default function WelcomeScreen() {
       <View style={styles.buttonRow}>
         <Link
           href="/login"
-          style={[styles.button, { backgroundColor: tint }]}
+          style={[styles.button, styles.buttonOutline]}
           asChild
         >
           <ThemedText style={styles.buttonText}>Login</ThemedText>
         </Link>
         <Link
           href="/register"
-          style={[styles.button, { backgroundColor: tint }]}
+          style={[styles.button, styles.buttonOutline]}
           asChild
         >
           <ThemedText style={styles.buttonText}>Register</ThemedText>
@@ -102,8 +97,13 @@ const styles = StyleSheet.create({
     paddingHorizontal: 24,
     borderRadius: 6,
   },
+  buttonOutline: {
+    borderWidth: 2,
+    borderColor: '#007AFF',
+  },
   buttonText: {
-    color: '#fff',
+    color: '#007AFF',
     fontWeight: '600',
+    textAlign: 'center',
   },
 });
