@@ -1,6 +1,14 @@
-# Welcome to your Expo app 👋
+# Bon Voyage Companion 🌍
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+A travel companion matching app built with Expo and React Native. Find caring travel companions for your journey with our secure and private matching system.
+
+## Features
+
+- **Welcome Screen**: App introduction with smooth navigation
+- **Dashboard**: Main interface for managing travel companions
+- **Explore**: Discover destinations and travel groups
+- **Secure Matching**: Private and secure companion matching system
+- **Cross-Platform**: Works on iOS, Android, and Web
 
 ## Get started
 
@@ -25,15 +33,25 @@ In the output, you'll find options to open the app in a
 
 You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
 
-## Get a fresh project
+## Project Structure
 
-When you're ready, run:
-
-```bash
-npm run reset-project
+```
+app/
+├── (tabs)/          # Tab navigation screens
+├── screens/         # Screen components
+├── utils/           # Utility functions
+├── index.tsx        # App entry point
+├── welcome.tsx      # Welcome screen route
+├── login.tsx        # Login screen
+└── register.tsx     # Registration screen
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+## Technology Stack
+
+- **Expo Router**: File-based routing
+- **React Native**: Cross-platform mobile development
+- **TypeScript**: Type-safe development
+- **Expo**: Development platform and tools
 
 ## Learn more
 

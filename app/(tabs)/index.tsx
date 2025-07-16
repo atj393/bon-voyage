@@ -10,12 +10,14 @@ export default function HomeScreen() {
           <ThemedText type="title">Dashboard</ThemedText>
           <ThemedText type="subtitle">Find your travel companion</ThemedText>
         </ThemedView>
-        
+
         <ThemedView style={styles.section}>
           <ThemedText type="subtitle">Recent Activity</ThemedText>
-          <ThemedText>No recent activity yet. Start by finding a travel companion!</ThemedText>
+          <ThemedText>
+            No recent activity yet. Start by finding a travel companion!
+          </ThemedText>
         </ThemedView>
-        
+
         <ThemedView style={styles.section}>
           <ThemedText type="subtitle">Your Trips</ThemedText>
           <ThemedText>No upcoming trips. Plan your next adventure!</ThemedText>
@@ -34,12 +36,12 @@ const styles = StyleSheet.create({
   },
   header: {
     marginBottom: 24,
-    alignItems: 'center',
+    alignItems: "center",
   },
   section: {
     marginBottom: 24,
     padding: 16,
     borderRadius: 8,
-    backgroundColor: 'rgba(0,0,0,0.05)',
+    backgroundColor: "rgba(0,0,0,0.05)",
   },
 });
