@@ -1,8 +1,9 @@
-import { Link, useLocalSearchParams, Href, useRouter } from 'expo-router';
-import { StyleSheet, ScrollView, TouchableOpacity } from 'react-native';
-import { ThemedView } from '@/components/ThemedView';
+import { CommonHeader } from '@/components/CommonHeader';
 import { ThemedText } from '@/components/ThemedText';
+import { ThemedView } from '@/components/ThemedView';
+import { Href, Link, useLocalSearchParams, useRouter } from 'expo-router';
 import React from 'react';
+import { ScrollView, StyleSheet, TouchableOpacity } from 'react-native';
 
 export default function DashboardScreen() {
   const router = useRouter();
@@ -15,6 +16,7 @@ export default function DashboardScreen() {
 
   return (
     <ThemedView style={styles.container}>
+      <CommonHeader title={`Dashboard - ${role === 'host' ? 'Host' : 'Companion'}`} />
       <ScrollView contentContainerStyle={styles.content}>
         <ThemedView style={styles.header}>
           <ThemedText type="title">
