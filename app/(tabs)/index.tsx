@@ -1,10 +1,12 @@
-import { StyleSheet, ScrollView } from "react-native";
+import { CommonHeader } from "@/components/CommonHeader";
 import { ThemedText } from "@/components/ThemedText";
 import { ThemedView } from "@/components/ThemedView";
+import { ScrollView, StyleSheet } from "react-native";
 
 export default function HomeScreen() {
   return (
     <ThemedView style={styles.container}>
+      <CommonHeader title="Home" />
       <ScrollView contentContainerStyle={styles.scrollContent}>
         <ThemedView style={styles.header}>
           <ThemedText type="title">Dashboard</ThemedText>

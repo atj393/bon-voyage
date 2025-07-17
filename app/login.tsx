@@ -1,19 +1,28 @@
-import { StyleSheet, TextInput, TouchableOpacity, Alert } from 'react-native';
+import { BackButton } from '@/components/BackButton';
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
-import { BackButton } from '@/components/BackButton';
+import { router } from 'expo-router';
 import { useState } from 'react';
+import { Alert, StyleSheet, TextInput, TouchableOpacity } from 'react-native';
 
 export default function LoginScreen() {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [email, setEmail] = useState('host@test.com');
+  const [password, setPassword] = useState('12345');
 
   const handleLogin = () => {
     if (!email || !password) {
       Alert.alert('Error', 'Please fill in all fields');
       return;
     }
-    Alert.alert('Success', 'Login functionality will be implemented here');
+    
+    // Check valid credentials
+    if ((email === 'host@test.com' || email === 'companion@test.com') && password === '12345') {
+      // Determine role based on email
+      const role = email === 'host@test.com' ? 'host' : 'companion';
+      router.push(`/dashboard?role=${role}`);
+    } else {
+      Alert.alert('Error', 'Invalid credentials. Please use:\n• host@test.com or companion@test.com\n• Password: 12345');
+    }
   };
 
   return (
@@ -108,7 +117,7 @@ const styles = StyleSheet.create({
     padding: 16,
     fontSize: 16,
     backgroundColor: 'transparent',
-    color: '#000',
+    color: '#fff',
     minHeight: 50,
   },
   loginButton: {
