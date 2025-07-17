@@ -1,7 +1,7 @@
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
 import { router } from 'expo-router';
-import { Alert, StyleSheet, TouchableOpacity } from 'react-native';
+import { Alert, Platform, StyleSheet, TouchableOpacity } from 'react-native';
 
 interface CommonHeaderProps {
   title?: string;
@@ -10,23 +10,32 @@ interface CommonHeaderProps {
 
 export function CommonHeader({ title = 'Bon Voyage', showLogout = true }: CommonHeaderProps) {
   const handleLogout = () => {
-    Alert.alert(
-      'Logout',
-      'Are you sure you want to logout?',
-      [
-        {
-          text: 'Cancel',
-          style: 'cancel',
-        },
-        {
-          text: 'Logout',
-          style: 'destructive',
-          onPress: () => {
-            router.replace('/welcome');
+    if (Platform.OS === 'web') {
+      // Use window.confirm for web
+      const confirmed = window.confirm('Are you sure you want to logout?');
+      if (confirmed) {
+        router.replace('/welcome');
+      }
+    } else {
+      // Use Alert for mobile platforms
+      Alert.alert(
+        'Logout',
+        'Are you sure you want to logout?',
+        [
+          {
+            text: 'Cancel',
+            style: 'cancel',
           },
-        },
-      ]
-    );
+          {
+            text: 'Logout',
+            style: 'destructive',
+            onPress: () => {
+              router.replace('/welcome');
+            },
+          },
+        ]
+      );
+    }
   };
 
   return (

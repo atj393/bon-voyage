@@ -65,11 +65,11 @@ function DashboardLink({ text, href, onPress }: DashboardLinkProps) {
 
 const styles = StyleSheet.create({
   container: { flex: 1 },
-  content: { padding: 20, gap: 16 },
+  content: { padding: 20, gap: 16, paddingBottom: 100 }, // Add bottom padding for the header
   header: { alignItems: 'center', marginBottom: 16 },
   card: {
     padding: 16,
     borderRadius: 8,
-    backgroundColor: 'rgba(0,0,0,0.05)',
+    backgroundColor: 'rgba(255,255,255,0.05)',
   },
 });

@@ -17,7 +17,9 @@ export default function LoginScreen() {
     
     // Check valid credentials
     if ((email === 'host@test.com' || email === 'companion@test.com') && password === '12345') {
-      router.push('/dashboard');
+      // Determine role based on email
+      const role = email === 'host@test.com' ? 'host' : 'companion';
+      router.push(`/dashboard?role=${role}`);
     } else {
       Alert.alert('Error', 'Invalid credentials. Please use:\n• host@test.com or companion@test.com\n• Password: 12345');
     }
@@ -115,7 +117,7 @@ const styles = StyleSheet.create({
     padding: 16,
     fontSize: 16,
     backgroundColor: 'transparent',
-    color: '#000',
+    color: '#fff',
     minHeight: 50,
   },
   loginButton: {
